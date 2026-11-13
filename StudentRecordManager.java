@@ -1,5 +1,3 @@
-package javapractice;
-
 import java.util.Scanner;
 
 public class StudentRecordManager {
@@ -65,13 +63,15 @@ public class StudentRecordManager {
     }
     public static void main(String[] args) {
         System.out.println("this is a Student Record Manager");
-        Scanner sc= new Scanner(System.in);
-        int size= size(sc);
-        String[] names= inputnames(size, sc);
-        int[] marks= inputmarks(size, sc);
-        viewstudents(names, marks,size);
-        searchstudent(names, marks, size, sc);
-        sortstudents(names, marks, size);
-        viewstudents(names, marks, size);
+
+        try (Scanner sc = new Scanner(System.in)) {
+            int size = size(sc);
+            String[] names = inputnames(size, sc);
+            int[] marks = inputmarks(size, sc);
+            viewstudents(names, marks, size);
+            searchstudent(names, marks, size, sc);
+            sortstudents(names, marks, size);
+            viewstudents(names, marks, size);
+        }
     }
 }
